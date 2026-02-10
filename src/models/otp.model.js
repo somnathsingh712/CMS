@@ -9,7 +9,7 @@ const otpSchema=new mongoose.Schema({
 {timestamps:true},);
 
 otpSchema.pre("save",async function(){
-    it (!this.isModified("otp")) return;
+    if (!this.isModified("otp")) return;
     this.otp = await bcrypt.hash(this.otp,10);
 });
 
