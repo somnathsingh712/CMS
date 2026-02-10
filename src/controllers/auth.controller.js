@@ -51,7 +51,7 @@ exports.signup= async(req,res)=>{
     const {email, password}= req.body;
 
     const user= await User.create({email,password});
-    res,jsin(user);
+    res.json(user);
 };
 
 exports.login= async (req,res)=>{
